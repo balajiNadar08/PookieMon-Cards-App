@@ -2,9 +2,9 @@ import {
   useFonts,
   BubblegumSans_400Regular,
 } from "@expo-google-fonts/bubblegum-sans";
-import { Text, View, Pressable } from "react-native";
+import { Text, View, Pressable, ScrollView } from "react-native";
 import { Link } from "expo-router";
-import AsciiAnimation from "../components/AsciiAnimation"; // 👈 add this
+import AsciiAnimation from "../components/AsciiAnimation";
 
 export default function Index() {
   const [fontsLoaded] = useFonts({
@@ -15,9 +15,15 @@ export default function Index() {
 
   return (
     <View className="flex-1 items-center justify-center px-6 bg-blue-400 gap-4">
-      
-      <View className="mb-4">
-        <AsciiAnimation />
+
+      <View className="mb-4 w-full">
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
+        >
+          <AsciiAnimation />
+        </ScrollView>
       </View>
 
       <Text
